@@ -1,10 +1,12 @@
 {
   "name": "Racing_RaceMeeting_DutyList",
+  "projectId": "e85a8f49-ba2b-4272-b7d4-bf125be19a48",
   "description": "Racing_RaceMeeting_DutyList",
   "main": "Main.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[2.23.4]",
     "UiPath.Mail.Activities": "[1.23.10]",
+    "UiPath.MicrosoftOffice365.Activities": "[2.7.11-preview]",
     "UiPath.System.Activities": "[24.10.4]",
     "UiPath.UIAutomation.Activities": "[24.10.2]"
   },
@@ -42,7 +44,8 @@
       "ignoredFiles": []
     },
     "fileInfoCollection": [],
-    "modernBehavior": false
+    "modernBehavior": false,
+    "saveToCloud": false
   },
   "expressionLanguage": "VisualBasic",
   "entryPoints": [

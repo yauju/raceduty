@@ -9,7 +9,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1103,1271</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1233,1307</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetDeptRowNo_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -26,6 +26,11 @@
       <x:String>System.ComponentModel</x:String>
       <x:String>System.Runtime.Serialization</x:String>
       <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Numerics</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -85,15 +90,16 @@
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
       <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="GetDeptRowNo" sap:VirtualizedContainerService.HintSize="572,1206" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="GetDeptRowNo" sap:VirtualizedContainerService.HintSize="608,1242" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LookupDataTable CellValue="{x:Null}" LookupColumnName="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[in_DepartmentRows]" DisplayName="Get Department Row Number Min" sap:VirtualizedContainerService.HintSize="510,292" sap2010:WorkflowViewState.IdRef="LookupDataTable_1" LookupValue="[in_Department(0).ToString]" RowIndex="[out_DepartmentRowMin]">
+    <ui:LookupDataTable CellValue="{x:Null}" LookupColumnName="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[in_DepartmentRows]" DisplayName="Get Department Row Number Min" sap:VirtualizedContainerService.HintSize="546,324" sap2010:WorkflowViewState.IdRef="LookupDataTable_1" LookupValue="[in_Department(0).ToString]" RowIndex="[out_DepartmentRowMin]">
       <ui:LookupDataTable.LookupColumnIndex>
         <InArgument x:TypeArguments="s:Nullable(x:Int32)">
           <Literal x:TypeArguments="s:Nullable(x:Int32)" Value="0">
@@ -104,23 +110,23 @@
         </InArgument>
       </ui:LookupDataTable.LookupColumnIndex>
     </ui:LookupDataTable>
-    <Assign DisplayName="Initialise Department Row Number Max" sap:VirtualizedContainerService.HintSize="510,82" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <Assign DisplayName="Initialise Department Row Number Max" sap:VirtualizedContainerService.HintSize="546,114" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
-        <OutArgument x:TypeArguments="x:Object">[out_DepartmentRowMax]</OutArgument>
+        <OutArgument x:TypeArguments="x:Int32">[out_DepartmentRowMax]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:Object">[out_DepartmentRowMin]</InArgument>
+        <InArgument x:TypeArguments="x:Int32">[out_DepartmentRowMin]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[in_DepartmentRows(out_DepartmentRowMax + 1)(0).ToString.Equals(&quot;&quot;)]" DisplayName="Get Department Row Number Max" sap:VirtualizedContainerService.HintSize="510,641" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+    <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[in_DepartmentRows(out_DepartmentRowMax + 1)(0).ToString.Equals(&quot;&quot;)]" DisplayName="Get Department Row Number Max" sap:VirtualizedContainerService.HintSize="546,716" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
       <ui:InterruptibleWhile.Body>
-        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,505" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="512,579" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign DisplayName="Increment Department Row Number" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+          <Assign DisplayName="Increment Department Row Number" sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_1">
             <Assign.To>
               <OutArgument x:TypeArguments="x:Int32">[out_DepartmentRowMax]</OutArgument>
             </Assign.To>
@@ -128,19 +134,19 @@
               <InArgument x:TypeArguments="x:Int32">[out_DepartmentRowMax + 1]</InArgument>
             </Assign.Value>
           </Assign>
-          <If Condition="[out_DepartmentRowMax.Equals(in_DepartmentRows.RowCount - 1)]" DisplayName="If Department Row Number Reaches End" sap:VirtualizedContainerService.HintSize="434,295" sap2010:WorkflowViewState.IdRef="If_1">
+          <If Condition="[out_DepartmentRowMax.Equals(in_DepartmentRows.RowCount - 1)]" DisplayName="If Department Row Number Reaches End" sap:VirtualizedContainerService.HintSize="450,377" sap2010:WorkflowViewState.IdRef="If_1">
             <If.Then>
-              <Sequence sap:VirtualizedContainerService.HintSize="376,113" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,136" sap2010:WorkflowViewState.IdRef="Sequence_3">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:Break DisplayName="End Increment" sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="Break_1" />
+                <ui:Break DisplayName="End Increment" sap:VirtualizedContainerService.HintSize="354,48" sap2010:WorkflowViewState.IdRef="Break_1" />
               </Sequence>
             </If.Then>
             <If.Else>
-              <Sequence sap:VirtualizedContainerService.HintSize="300,80" sap2010:WorkflowViewState.IdRef="Sequence_4">
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="300,80" sap2010:WorkflowViewState.IdRef="Sequence_4">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
